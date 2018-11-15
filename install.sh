@@ -1,14 +1,8 @@
 #!/bin/bash -e
 
-yum clean
-mv /var/lib/apt/lists/* /tmp
-mkdir -p /var/lib/apt/lists/partial
-yum clean
-yum update
-dpkg --purge --force-depends ca-certificates-java
-yum install ca-certificates-java
+sudo yum update
 
-# install Clojure's build tool: leiningen
+#install Clojure's build tool: leiningen
 echo "================= Install clojure's build tool: leiningen ==================="
 wget -nv https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
 mv lein /usr/local/bin/lein
